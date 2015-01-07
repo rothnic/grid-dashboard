@@ -1,37 +1,18 @@
-# webpack/react-starter
+# grid-dashboard
 
-Starter template for react and webpack.
+Starter dashboard app using react-starter/webpack, reactjs, react-grid-layout. The intent is to develop some 
+reusable widgets that could be used in a dashboard app.
 
-## Features
-
-* Compilation with webpack
-* React and jsx
-* react-router
-* Stylesheets can be CSS, LESS, SASS, Stylus or mixed
-* Embedded resources like images or fonts use DataUrls if appropriate
-* A simple flag loads a react component (and dependencies) on demand.
-* Development
-  * Development server
-  * Optionally Hot Module Replacement development server (LiveReload for Stylesheets and React components enabled)
-  * Uses SourceUrl for performance, but you may switch to SourceMaps easily
-* Production
-  * Server example for prerendering for React components
-  * Initial data inlined in page
-  * Long Term Caching through file hashes enabled
-  * Generate separate css file to avoid FOUC
-  * Minimized CSS and javascript
-* Also supports coffee-script files if you are more a coffee-script guy.
-* You can also require markdown or text files for your content.
-* Just require the files...
+Current entry point is simply the react-grid-layout example integrated as a new entry point at /dashboard. So, you 
+can access this at localhost:8080/dashboard.
 
 ## Installation
 
-Just clone this repo and change the `origin` git remote.
+Clone, then:
 
 ``` text
 npm install
 ```
-
 
 ## Development server
 
@@ -99,18 +80,6 @@ The server is at `lib/server.js`
 The production setting builds two configurations: one for the client (`build/public`) and one for the serverside prerendering (`build/prerender`).
 
 
-## Build visualization
-
-After a production build you may want to visualize you modules and chunks tree.
-
-Use the [analyse tool](http://webpack.github.io/analyse/) with the file at `build/stats.json`.
-
-
-## Loaders and file types
-
-Many file types are preconfigured, but not every loader is installed. If you get an error like `Cannot find module "xxx-loader"`, you'll need to install the loader with `npm install xxx-loader --save` and restart the compilation.
-
-
 ## Common changes to the configuration
 
 ### Add more entry points
@@ -122,25 +91,3 @@ Many file types are preconfigured, but not every loader is installed. If you get
 3. (Optional) Enable `commonsChunk` in `webpack-production.config.js` and add `<script src="COMMONS_URL"></script>` to `app/prerender.html`.
 4. Add a new HTML file in `config/dev-server-public` that references the new output file.
 5. Restart compilation.
-
-### Switch devtool to SourceMaps
-
-Change `devtool` property in `webpack-dev-server.config.js` and `webpack-hot-dev-server.config.js` to `"source-map"` (better module names) or `"eval-source-map"` (faster compilation).
-
-SourceMaps have a performance impact on compilation.
-
-### Enable SourceMaps in production
-
-1. Uncomment the `devtool` line in `webpack-production.config.js`.
-2. Make sure that the folder `build\public\debugging` is access controlled, i. e. by password.
-
-SourceMaps have a performance impact on compilation.
-
-SourceMaps contains your unminimized source code, so you need to restrict access to `build\public\debugging`.
-
-
-## License
-
-Copyright (c) 2012-2014 Tobias Koppers [![Gittip donate button](http://img.shields.io/gittip/sokra.png)](https://www.gittip.com/sokra/)
-
-MIT (http://www.opensource.org/licenses/mit-license.php)
