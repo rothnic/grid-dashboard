@@ -1,0 +1,13 @@
+body {
+	background: #eee;
+    padding: 20px;
+}
+
+.application {
+	opacity: 1;
+}
+
+.application.loading {
+	opacity: 0.2;
+	transition: opacity 600ms;
+}
